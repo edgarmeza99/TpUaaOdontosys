@@ -18,7 +18,6 @@
             <input name="mail" type="text" placeholder="Correo electronico"/>
             <input name="pass" type="password" placeholder="Contraseña"/>
             <button type="submit">Ingresar</button>
-            $mensaje
             <p class="message">Aun no se registro? <a href="newAccount">Crear Cuenta</a></p>
         </form>
     </div>

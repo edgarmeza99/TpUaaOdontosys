@@ -30,7 +30,7 @@
                 <!--Sub menu-->
                 <ul>
                     <li id="cliente"><a href="/main/paciente">Pacientes</a></li>
-                    <li><a href="#">Proveedores</a></li>
+                    <li><a href="/main/proveedor">Proveedores</a></li>
                     <li><a href="#">Consultas</a></li>
                 </ul>
             </li>
@@ -127,15 +127,15 @@
         <table class="table table-striped tbDetalle">
             <tbody>
                 #foreach($pac in $paciente)
-                <tr>
-                    <th name="thDocumento" width="9%" scope="row">$pac.getNumeroDoc()</th>
-                    <td name="thNombre" width="24%">$pac.getNombre()</td>
-                    <td name="thNumero" width="13%">$pac.getTelefono()</td>
-                    <td name="thDireccion" width="23%">$pac.getDireccion()</td>
-                    <td name="thTipo" width="20%">$pac.getTipoPlan()</td>
-                    <td><a href="/main/paciente/$pac.getNumeroDoc()" class="btn btn-primary">Modificar</a>
-                    <td><a class="btn btn-danger" onclick="eliminar($pac.getNumeroDoc())">Eliminar</a></td>
-                </tr>
+                    <tr>
+                        <th name="thDocumento" width="9%" scope="row">$pac.getNumeroDoc()</th>
+                        <td name="thNombre" width="24%">$pac.getNombre()</td>
+                        <td name="thNumero" width="13%">$pac.getTelefono()</td>
+                        <td name="thDireccion" width="23%">$pac.getDireccion()</td>
+                        <td name="thTipo" width="20%">$pac.getTipoPlan()</td>
+                        <td><a href="/main/paciente/$pac.getNumeroDoc()" class="btn btn-primary">Modificar</a>
+                        <td><a class="btn btn-danger" onclick="eliminar($pac.getNumeroDoc())">Eliminar</a></td>
+                    </tr>
                 #end
             </tbody>
         </table>
@@ -147,19 +147,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="/js/alertify.js"></script>
-<script>
-
-    function eliminar(id) {
-        alertify.
-        alertify.confirm('¿Esta seguro de eliminar este paciente?', function (e) {
-            if (e) {
-                location.href = "/main/paciente/eliminar/" + id;
-            }
-        });
-    }
-
-
-</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+<script src="/js/mensajes.js"></script>
 </body>
 
 </html>

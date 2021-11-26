@@ -29,7 +29,7 @@
                 <!--Sub menu-->
                 <ul>
                     <li id="cliente"><a href="/main/paciente">Pacientes</a></li>
-                    <li><a href="#">Proveedores</a></li>
+                    <li><a href="/main/proveedor">Proveedores</a></li>
                     <li><a href="#">Consultas</a></li>
                 </ul>
             </li>
@@ -63,13 +63,13 @@
         <div class="col-2">
             <label>
                 Numero Documento
-                <input name="documento" placeholder="Numero Documento" tabindex="1"/>
+                <input id="docuemntoId" name="documento" placeholder="Numero Documento" tabindex="1"/>
             </label>
         </div>
         <div class="col-2">
             <label>
                 Nombre y Apellido
-                <input name="nombre" placeholder="Nombre y Apellido" tabindex="2"/>
+                <input id="nombre" name="nombre" placeholder="Nombre y Apellido" tabindex="2"/>
             </label>
         </div>
         <div class="col-3">
@@ -102,7 +102,6 @@
         </div>
 
     </form>
-
 </div>
 <!--Detalle pacientes-->
 <div class="contenedorTb">
@@ -115,8 +114,8 @@
                 <th width="12%" scope="col">Teléfono</th>
                 <th width="23%" scope="col">Dirección</th>
                 <th width="20%" scope="col">Tipo de Plan</th>
-                <th scope="col" colspan="2">Operaciones</th>
-
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
         </table>
@@ -125,15 +124,15 @@
         <table class="table table-striped tbDetalle">
             <tbody>
                 #foreach($pac in $paciente)
-                    <tr>
-                        <th name="thDocumento" width="9%" scope="row">$pac.getNumeroDoc()</th>
-                        <td name="thNombre" width="24%">$pac.getNombre()</td>
-                        <td name="thNumero" width="13%">$pac.getTelefono()</td>
-                        <td name="thDireccion" width="23%">$pac.getDireccion()</td>
-                        <td name="thTipo" width="20%">$pac.getTipoPlan()</td>
-                        <td><a href="paciente/$pac.getNumeroDoc()" class="btn btn-primary btnMod">Modificar</a>
-                        <td><a class="btn btn-danger" href="javascript:eliminar($pac.getNumeroDoc())">Eliminar</a></td>
-                    </tr>
+                <tr>
+                    <th name="thDocumento" width="9%" scope="row">$pac.getNumeroDoc()</th>
+                    <td name="thNombre" width="24%">$pac.getNombre()</td>
+                    <td name="thNumero" width="13%">$pac.getTelefono()</td>
+                    <td name="thDireccion" width="23%">$pac.getDireccion()</td>
+                    <td name="thTipo" width="20%">$pac.getTipoPlan()</td>
+                    <td><a href="paciente/$pac.getNumeroDoc()" class="btn btn-primary btnMod">Modificar</a>
+                    <td><a class="btn btn-danger" onclick="eliminar($pac.getNumeroDoc())">Eliminar</a></td>
+                </tr>
                 #end
             </tbody>
         </table>
@@ -144,22 +143,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<script src="/js/alertify.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+<script src="/js/mensajes.js"></script>
 
-    function eliminar(id) {
-        alertify.confirm('Eliminar Regsitro','¿Esta seguro de eliminar este registro?',function (){
-            alertify.success("Registro eliminado correctamente");
-            setTimeout(function(){
-                location.href="/main/paciente/eliminar/"+id; ;},3000);
-        },function () {
-            alertify.error('No se elimino ningun registro');
-        });
-    }
-
-
-</script>
 </body>
 
 </html>

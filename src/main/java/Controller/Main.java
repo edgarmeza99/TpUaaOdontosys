@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.Servicios.PacienteServicio;
+import Controller.Servicios.ProveedorServicio;
 import Controller.Servicios.UsuarioServicio;
 import spark.ModelAndView;
 import spark.Request;
@@ -21,12 +22,13 @@ public class Main {
         UsuarioServicio.llamargets();
 
 
-
         post("/newAccount", UsuarioServicio::createUsr);
         post("/main", UsuarioServicio::verificarLogin);
         post("/main/paciente", PacienteServicio::crearPaciente);
         post("/main/pacienteMod", PacienteServicio::modificarPaciente);
-
+        // metodos post para proveedores
+        post("/main/proveedor", ProveedorServicio::crearProveedor);
+        post("/main/proveedorMod", ProveedorServicio::modificarProveedor);
 
     }
 
@@ -35,8 +37,15 @@ public class Main {
         get("main/paciente",PacienteServicio::pagePaciente,engine);
         get("/main/paciente/:id", PacienteServicio::cargarFormulario, engine);
         get("/main/paciente/eliminar/:id", PacienteServicio::eliminarPaciente , engine);
+        LlamarProveedor();
         return new ModelAndView(modelo, "View/main.vm");
 
+    }
+
+    public static void LlamarProveedor (){
+        get("main/proveedor", ProveedorServicio::pageProveedor,engine);
+        get("/main/proveedor/:id", ProveedorServicio::cargarFormulario, engine);
+        get("/main/proveedor/eliminar/:id", ProveedorServicio::eliminarProveedor , engine);
     }
 
 
