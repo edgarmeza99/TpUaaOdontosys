@@ -15,7 +15,10 @@ public class Main {
         port(getHerokuAssignedPort());
         staticFiles.location("/assets");
         UsuarioServicio.llamargets();
-
+        get("/",(request, response) -> {
+            response.redirect("/login");
+            return "";
+        });
 
         post("/newAccount", UsuarioServicio::createUsr);
         post("/main", UsuarioServicio::verificarLogin);
