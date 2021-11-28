@@ -65,13 +65,13 @@
             <div class="col-2">
                 <label>
                     Numero Documento
-                    <input name="documento" value="$pac.getNumeroDoc()" readonly="readonly" tabindex="1"/>
+                    <input name="documento" id="clave" value="$pac.getNumeroDoc()" readonly="readonly" tabindex="1"/>
                 </label>
             </div>
             <div class="col-2">
                 <label>
                     Nombre y Apellido
-                    <input name="nombre" value="$pac.getNombre()" tabindex="2"/>
+                    <input name="nombre" id="descripcion" value="$pac.getNombre()" tabindex="2"/>
                 </label>
             </div>
             <div class="col-3">
@@ -133,8 +133,8 @@
                         <td name="thNumero" width="13%">$pac.getTelefono()</td>
                         <td name="thDireccion" width="23%">$pac.getDireccion()</td>
                         <td name="thTipo" width="20%">$pac.getTipoPlan()</td>
-                        <td><a href="/main/paciente/$pac.getNumeroDoc()" class="btn btn-primary">Modificar</a>
-                        <td><a class="btn btn-danger" onclick="eliminar($pac.getNumeroDoc())">Eliminar</a></td>
+                        <td><a href="/main/paciente/$pac.getNumeroDoc()" class="btn btn-primary">Modificar</a></td>
+                        <td><a class="btn btn-danger" onclick="eliminar('$pac.getNumeroDoc()','paciente')">Eliminar</a></td>
                     </tr>
                 #end
             </tbody>

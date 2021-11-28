@@ -63,13 +63,13 @@
         <div class="col-2">
             <label>
                 Numero Documento
-                <input id="docuemntoId" name="documento" placeholder="Numero Documento" tabindex="1"/>
+                <input id="clave" name="documento" placeholder="Numero Documento" tabindex="1"/>
             </label>
         </div>
         <div class="col-2">
             <label>
                 Nombre y Apellido
-                <input id="nombre" name="nombre" placeholder="Nombre y Apellido" tabindex="2"/>
+                <input id="descripcion" name="nombre" placeholder="Nombre y Apellido" tabindex="2"/>
             </label>
         </div>
         <div class="col-3">
@@ -131,7 +131,7 @@
                     <td name="thDireccion" width="23%">$pac.getDireccion()</td>
                     <td name="thTipo" width="20%">$pac.getTipoPlan()</td>
                     <td><a href="paciente/$pac.getNumeroDoc()" class="btn btn-primary btnMod">Modificar</a>
-                    <td><a class="btn btn-danger" onclick="eliminar($pac.getNumeroDoc())">Eliminar</a></td>
+                    <td><a class="btn btn-danger" onclick="eliminar('$pac.getNumeroDoc()','paciente')">Eliminar</a></td>
                 </tr>
                 #end
             </tbody>

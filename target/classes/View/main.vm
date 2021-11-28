@@ -26,16 +26,16 @@
                 <!--Sub menu-->
                 <ul>
                 <!--id="cliente" onclick="cargarCliente()"-->
-                    <li ><a href="main/paciente">Pacientes</a></li>
-                    <li><a href="#">Proveedores</a></li>
+                    <li><a href="main/paciente">Pacientes</a></li>
+                    <li><a href="main/proveedor">Proveedores</a></li>
                     <li><a href="#">Consultas</a></li>
                 </ul>
             </li>
             <li><a href="#">Mantenimiento</a>
             <!--Sub menu-->
             <ul>
-                <li><a>Productos</a></li>
-                <li><a>Tipo de Plan</a></li>
+                <li><a href="main/producto">Productos</a></li>
+                <li><a href="#">Tipo de Plan</a></li>
             </ul>
             </li>
             <li><a href="login" id="salir">Salir</a></li>

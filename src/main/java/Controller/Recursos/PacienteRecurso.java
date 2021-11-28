@@ -20,7 +20,7 @@ public class PacienteRecurso {
 
     public static void crearPaciente(Paciente p) {
         try{
-            sql = "INSERT INTO PACIENTE(pacDocumento,pacNombre,pacTelefono,pacDireccion,pacTipPlan)\n" +
+            sql = "INSERT INTO paciente(\"pacDocumento\", \"pacNombre\", \"pacTelefono\", \"pacDireccion\", \"pacTipPlan\")\n" +
                     "VALUES(?,?,?,?,?);";
             ps = conn.getCon().prepareStatement(sql);
             ps.setString(1, p.getNumeroDoc());
@@ -39,8 +39,8 @@ public class PacienteRecurso {
 
     public static void modPaciente(Paciente p) {
         try{
-            sql = "UPDATE PACIENTE SET pacNombre = ?,pacTelefono = ?,pacDireccion = ?,pacTipPlan = ?\n" +
-                    " WHERE pacDocumento=?;";
+            sql = "UPDATE public.paciente SET  \"pacNombre\"=?, \"pacTelefono\"=?, \"pacDireccion\"=?, \"pacTipPlan\"=?" +
+                    " WHERE \"pacDocumento\"=?;";
             ps = conn.getCon().prepareStatement(sql);
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getTelefono());
@@ -55,7 +55,7 @@ public class PacienteRecurso {
     }
     public static void eliminarPaciente(Paciente p) {
         try{
-            sql = "delete from paciente where pacDocumento=?;";
+            sql = "delete from paciente where \"pacDocumento\"=?;";
             ps = conn.getCon().prepareStatement(sql);
             ps.setString(1, p.getNumeroDoc());
 
@@ -70,8 +70,7 @@ public class PacienteRecurso {
 
 
     public static List<Paciente> listarPaciente() throws SQLException {
-        sql = "select * from paciente order by pacNombre";
-        System.out.println("hola");
+        sql = "select * from paciente order by \"pacNombre\"";
         st = conn.getCon().createStatement();
         rs = st.executeQuery(sql);
         while (rs.next()) {
@@ -89,7 +88,7 @@ public class PacienteRecurso {
     }
 
     public static List<Paciente> porPaciente(Paciente p) throws SQLException {
-        sql = "select * from paciente where pacDocumento=?";
+        sql = "select * from paciente where \"pacDocumento\"=?";
         con = conn.getCon();
         ps = con.prepareStatement(sql);
         System.out.println(p.getNumeroDoc());

@@ -34,7 +34,7 @@
             <li><a href="#">Mantenimiento</a>
             <!--Sub menu-->
             <ul>
-                <li><a href="#">Productos</a></li>
+                <li><a href="main/producto">Productos</a></li>
                 <li><a href="#">Tipo de Plan</a></li>
             </ul>
             </li>

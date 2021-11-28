@@ -17,7 +17,7 @@ public class UsuarioRecurso {
     public static String crearUsuario(Usuario u) throws SQLException {
         String mensaje = "";
         try {
-            sql = "Insert into usuario values(?,?,?); ";
+            sql = "Insert into public.USUARIO (\n\"usrNombre\", \"usrMail\", \"usrPass\")values(?,?,?); ";
             System.out.println(u.toString());
             ps = conn.getCon().prepareStatement(sql);
             ps.setString(1, u.getNombre());
@@ -26,6 +26,7 @@ public class UsuarioRecurso {
             ps.executeUpdate();
             mensaje = "Se registro Correctamente";
         } catch (Exception e) {
+            System.out.println(e);
             mensaje = e.toString();
         }
         ps.close();
@@ -35,7 +36,7 @@ public class UsuarioRecurso {
     //verificamos que el correo no se duplique
     public static boolean verificarMail(Usuario u) throws SQLException {
         if (u.getMail() != null) {
-            sql = "select * from USUARIO where usrMail=?";
+            sql = "select * from public.USUARIO where \"usrMail\"=?";
             con = conn.getCon();
             ps = con.prepareStatement(sql);
             ps.setString(1, u.getMail());
@@ -56,7 +57,7 @@ public class UsuarioRecurso {
     //    verificamos si el usuario existe para realziar el login
     public static boolean verificarUsuario(Usuario u) throws SQLException {
         if (!u.getMail().equals("") && !u.getPass().equals("") && u.getMail() != null && u.getPass() != null) {
-            sql = "select * from USUARIO where usrMail=? and usrPass=?";
+            sql = "select * from public.USUARIO where \"usrMail\"=? and \"usrPass\"=?";
             con = conn.getCon();
             ps = con.prepareStatement(sql);
             ps.setString(1, u.getMail());

@@ -39,13 +39,19 @@ public class UsuarioServicio {
         HashMap<String, Object> modelo = new HashMap<>();
         usr.setMail(req.queryParams("mail"));
         usr.setPass(req.queryParams("pass"));
-        if (UsuarioRecurso.verificarUsuario(usr)){
-            get("/main", Main::pageMain, engine);
-            res.redirect("/main");
-            return "";
+        try {
+            if (UsuarioRecurso.verificarUsuario(usr)){
+                get("/main", Main::pageMain, engine);
+                res.redirect("/main");
+                return "";
 
+            }
+            res.redirect("/login");
+
+        }catch (SQLException e){
+            System.err.println(e);
         }
-        res.redirect("/login");
+
 
         return "";
     }

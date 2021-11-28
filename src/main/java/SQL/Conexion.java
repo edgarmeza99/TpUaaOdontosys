@@ -6,33 +6,27 @@ import java.sql.SQLException;
 
 public class Conexion {
     private Connection con;
-    private String URL = //"jdbc:sqlserver://LAPTOP-IOHMRPVT\\SQLEXPRESS:50702;"
-            "jdbc:sqlserver://DESKTOP-PDIBPF7\\SQLEXPRESS:61282;"
-            + "database=Odontosys;"
-            + "user=sa;"
-            + "password=1;"
-            + "loginTimeout=30;";
-    private String driver = "com.microsoft.sqlserver.jdbc.SQLServerXADataSource";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Odontosys";
+    private static final String USER = "postgres";
+    private static final String PASS = "123456";
+    private String driver = "org.postgresql.Driver";
 
     public Conexion() {
         try {
             Class.forName(driver);
-            con = DriverManager.getConnection(URL);
-            System.out.println("conexion exitosa");
+            con = DriverManager.getConnection(URL,USER,PASS);
         } catch (Exception e) {
             System.err.println("Error:" + e);
         }
     }
 
     public Connection getCon() {
-        System.out.println("conectado");
         return con;
     }
 
     public Connection getDesCon() throws SQLException {
 
         if (con != null) {
-            System.out.println("Desconectado!");
             con.close();
         } else {
             System.out.println("\nNO EXISTE CONEXION");
