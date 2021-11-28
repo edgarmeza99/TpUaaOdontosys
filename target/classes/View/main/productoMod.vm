@@ -123,7 +123,7 @@
                     <td name="thPrecio" width="13%">$pro.getProductoPrecio()</td>
                     <td name="thTipoProducto" width="23%">$pro.getProductoTipo()</td>
                     <td><a href="/main/producto/$pro.getProductoId()" class="btn btn-primary btnMod">Modificar</a>
-                    <td><a  class="btn btn-danger" disabled onclick="eliminar('$pro.getProductoId()','producto')">Eliminar</a></td>
+                    <td><a  class="btn btn-danger"  onclick="eliminar('$pro.getProductoId()','producto')">Eliminar</a></td>
                 </tr>
                 #end
             </tbody>
