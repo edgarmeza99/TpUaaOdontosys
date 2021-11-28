@@ -1,5 +1,7 @@
 package Controller.Servicios;
 
+import static spark.Spark.*;
+
 import Controller.Recursos.PacienteRecurso;
 import Modelo.Paciente;
 import spark.ModelAndView;
