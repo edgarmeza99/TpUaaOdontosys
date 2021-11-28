@@ -15,11 +15,9 @@ public class Main {
     static VelocityTemplateEngine engine = new VelocityTemplateEngine();
 
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
         staticFiles.location("/assets");
         UsuarioServicio.llamargets();
-        port(getHerokuAssignedPort());
-
-
 
 
 
