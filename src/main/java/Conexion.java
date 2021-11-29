@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class Conexion {
     private Connection con;
-    private static final String URL = "postgres://szflsvqhblddzz:26eceeaee4f49878756859f408aee4f238c8645e5b1b39bd4abea66712e07f27@ec2-23-23-219-25.compute-1.amazonaws.com:5432/dfdlpunnuqeqro";
+    private static final String URL = "jdbc:postgresql://ec2-23-23-219-25.compute-1.amazonaws.com:5432/dfdlpunnuqeqro";
     private static final String USER = "szflsvqhblddzz";
     private static final String PASS = "26eceeaee4f49878756859f408aee4f238c8645e5b1b39bd4abea66712e07f27";
     private String driver = "org.postgresql.Driver";
