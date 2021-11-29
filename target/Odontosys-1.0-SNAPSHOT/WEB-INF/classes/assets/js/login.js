@@ -1,39 +1,24 @@
-let btnMsg = document.getElementsByClassName("message")
-document.onload = function () {
-  document.getElementById("register-form").style.display = "none"
-  document.getElementById("regCliente").style.display = "none"
-  document.getElementById("msgError").style.display="none"
-}
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("login-form").addEventListener('submit', validarFormulario);
+});
 
+function validarFormulario(evento) {
+  evento.preventDefault();
+  var clave = document.getElementById('clave').value;
+  if (clave.length < 1) {
+    swal('La clave no es válida');
 
-
-for (var i = 0; i < btnMsg.length; i++) {
-  btnMsg[i].onclick = function () {
-
-    if (document.getElementById("register-form").style.display == "none") {
-      document.getElementById("register-form").style.display = "block"
-      document.getElementById("login-form").style.display = "none"
-      return
-    }
-    document.getElementById("register-form").style.display = "none"
-    document.getElementById("login-form").style.display = "block"
-    return
+    return;
   }
-}
-
-
-document.getElementById("cliente").onclick = function () {
-  if (document.getElementById("regCliente").style.display == "none") {
-    document.getElementById("regCliente").style.display = "block"
-    return
+  var usuario = document.getElementById('usuario').value;
+  if (usuario.length == 0) {
+    swal('No has escrito nada en el usuario');
+    return;
   }
-  document.getElementById("regCliente").style.display = "none"
-  return
-
+  var usuario = document.getElementById('mail').value;
+  if (usuario.length == 0) {
+    swal('No has escrito nada en el correo');
+    return;
+  }
+  this.submit();
 }
-
-document.getElementById("Lg_Ingresar").onclick = function () {
-  document.getElementById("msgError").style.display="block"
-}
-
-
