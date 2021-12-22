@@ -19,22 +19,4 @@ function eliminar(id, modulo) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("regCliente").addEventListener('submit', validarFormulario);
-});
 
-function validarFormulario(evento) {
-    evento.preventDefault();
-    var clave = document.getElementById('clave').value;
-    if (clave.length < 1) {
-        swal('La clave no es válida');
-
-        return;
-    }
-    var usuario = document.getElementById('descripcion').value;
-    if (usuario.length == 0) {
-        swal('No has escrito nada en la descripcion');
-        return;
-    }
-    this.submit();
-}

@@ -57,32 +57,45 @@
     </div>
 </div>
 
-
+<div class="container">
 <div class="formPro">
 
     <form id="regProducto" method="post" action="/main/producto">
+            <div class="col-2">
+                <label>
+                    Id del Producto
+                    <input name="id" id="clave" placeholder="Id Producto"  tabindex="1" required/>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Descripción
+                    <input name="descripcion" id="descripcion" placeholder="Descripción" tabindex="2" required/>
+                </label>
+            </div>
+
         <div class="col-2">
-            <label>
-                Id del Producto
-                <input name="id" id="clave" placeholder="Id Producto"  tabindex="1"/>
-            </label>
-        </div>
-        <div class="col-2">
-            <label>
-                Descripción
-                <input name="descripcion" id="descripcion" placeholder="Descripción" tabindex="2"/>
-            </label>
-        </div>
-        <div class="col-3">
             <label>
                 Precio
-                <input name="precio" placeholder="Precio" tabindex="3"/>
+                <input name="precio" placeholder="Precio" tabindex="3" required/>
             </label>
         </div>
         <div class="col-3">
             <label>
                 Tipo de Producto
-                <input name="tipo" placeholder="Tipo de Producto" tabindex="4"/>
+                <input name="tipo" placeholder="Tipo de Producto" tabindex="4" required/>
+            </label>
+        </div>
+        <div class="col-2">
+            <label>
+                Descripción del Uso del Producto
+                <input name="desUso" id="desUso" placeholder="Descripción del Uso del Producto" tabindex="5"/>
+            </label>
+        </div>
+        <div class="col-3">
+            <label>
+                Minimo Stock
+                <input name="stkMin" id="stkMin" placeholder="Minimo Stock" tabindex="6" required/>
             </label>
         </div>
 
@@ -94,7 +107,8 @@
 
     </form>
 </div>
-<div class="contenedorTb">
+</div>
+<div class="container">
     <div>
         <table class="table tbCabecera">
             <thead>
@@ -103,9 +117,10 @@
                 <th width="23%" scope="col">Descripción</th>
                 <th width="12%" scope="col">Precio</th>
                 <th width="23%" scope="col">Tipo de Producto</th>
+                <th width="23%" scope="col">Uso del Preducto</th>
+                <th width="23%" scope="col">Stock Minimo</th>
+                <th colspan="2">Acciones</th>
 
-                <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
             </thead>
         </table>
@@ -119,7 +134,8 @@
                     <td name="thDescripcion" width="24%">$pro.getProductoDescripcion()</td>
                     <td name="thPrecio" width="13%">$pro.getProductoPrecio()</td>
                     <td name="thTipoProducto" width="23%">$pro.getProductoTipo()</td>
-
+                    <td name="thProductoUso" width="23%">$pro.getProductoUsu()</td>
+                    <td name="thStockMinimo" width="23%">$pro.getProductoMinimo()</td>
                     <td><a href="producto/$pro.getProductoId()" class="btn btn-primary btnMod">Modificar</a>
                     <td><a  class="btn btn-danger" onclick="eliminar('$pro.getProductoId()','producto')">Eliminar</a></td>
                 </tr>

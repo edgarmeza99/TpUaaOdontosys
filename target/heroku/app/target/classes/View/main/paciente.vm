@@ -45,66 +45,55 @@
     </nav>
 </div>
 <div class="clearfix"></div>
-<div id="msg" class="mensajitos">
-    <div id="mensaje" class="card">
-        <div class="card-header" style="background-color: #bcdcc3;">
-            <h3>Mensaje</h3>
-        </div>
-        <div class="card-body">
-            <p id="textMng" style="font-size: 18px;">REGISTRO GRABADO</p>
-        </div>
-        <div id="botones">
-        </div>
+<div class="container">
+    <div class="formCli">
+
+        <form id="regCliente" method="post" action="/main/paciente">
+            <div class="col-2">
+                <label>
+                    Numero Documento
+                    <input id="clave" name="documento" placeholder="Numero Documento" tabindex="1" required/>
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Nombre y Apellido
+                    <input id="descripcion" name="nombre" placeholder="Nombre y Apellido" tabindex="2" required/>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Teléfono
+                    <input name="telefono" placeholder="Teléfono" tabindex="3" required/>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Dirección
+                    <input name="direccion" placeholder="Dirección" tabindex="4" required/>
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Tipo de Plan
+                    <select tabindex="5" name="plan" required>
+                        <option>Estandar</option>
+                        <option>Promo</option>
+                        <option>Premium</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-submit">
+                <button type="submit">Guardar</button>
+                <button type="reset" class="cerrar"><a href="/main">Cerrar</a></button>
+                <!--onclick="cargarCliente()"-->
+            </div>
+
+        </form>
     </div>
 </div>
-<div class="formCli">
-
-    <form id="regCliente" method="post" action="/main/paciente">
-        <div class="col-2">
-            <label>
-                Numero Documento
-                <input id="clave" name="documento" placeholder="Numero Documento" tabindex="1"/>
-            </label>
-        </div>
-        <div class="col-2">
-            <label>
-                Nombre y Apellido
-                <input id="descripcion" name="nombre" placeholder="Nombre y Apellido" tabindex="2"/>
-            </label>
-        </div>
-        <div class="col-3">
-            <label>
-                Teléfono
-                <input name="telefono" placeholder="Teléfono" tabindex="3"/>
-            </label>
-        </div>
-        <div class="col-3">
-            <label>
-                Dirección
-                <input name="direccion" placeholder="Dirección" tabindex="4"/>
-            </label>
-        </div>
-        <div class="col-3">
-            <label>
-                Tipo de Plan
-                <select tabindex="5" name="plan">
-                    <option>Ninguno</option>
-                    <option>Estandar</option>
-                    <option>Promo</option>
-                    <option>Premium</option>
-                </select>
-            </label>
-        </div>
-        <div class="col-submit">
-            <button type="submit">Guardar</button>
-            <button type="reset" class="cerrar"><a href="/main">Cerrar</a></button>
-            <!--onclick="cargarCliente()"-->
-        </div>
-
-    </form>
-</div>
 <!--Detalle pacientes-->
-<div class="contenedorTb">
+<div class="container">
     <div>
         <table class="table tbCabecera">
             <thead>

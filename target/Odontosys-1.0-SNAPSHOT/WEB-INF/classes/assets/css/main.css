@@ -4,7 +4,8 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 /* menu */
@@ -93,10 +94,7 @@ form {
     margin: 5px 30px 20px 30px;
     overflow: hidden;
     background: #FFF;
-    border: 1px solid #E4E4E4;
-    border-radius: 5px;
-    font-size: 0;
-    margin-inline: 10%;
+    margin-inline: 5%;
 }
 
 @media(min-width:800px) {
@@ -335,3 +333,16 @@ div .detalle tr td {
           solid rgba(0, 0, 0, 0.125);
         border-radius: 0.25rem;
     }
+.container{
+    background-color: white;
+}
+#detalle{
+    height: 40vh;
+    overflow-y: scroll;
+}
+#total{
+    font-size: 22px;
+    font-weight: bold;
+    background-color: darkgrey;
+
+}

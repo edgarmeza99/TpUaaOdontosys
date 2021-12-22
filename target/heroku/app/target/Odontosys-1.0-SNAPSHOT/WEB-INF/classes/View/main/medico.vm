@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>OdontosSystem</title>
+</head>
+
+<body class="bgd1">
+<div>
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Registro</a>
+                <ul>
+                    <li><a href="#">Ventas</a></li>
+                    <li><a href="#">Pendientes</a></li>
+                </ul>
+
+            </li>
+
+            <li><a href="#">Operaciones</a>
+                <!--Sub menu-->
+                <ul>
+                    <li id="cliente"><a href="/main/paciente">Pacientes</a></li>
+                    <li><a href="/main/proveedor">Proveedores</a></li>
+                    <li><a href="/main/medico">Medicos</a></li>
+                    <li><a href="#">Consultas</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Mantenimiento</a>
+                <!--Sub menu-->
+                <ul>
+                    <li><a>Productos</a></li>
+                    <li><a>Tipo de Plan</a></li>
+                </ul>
+            </li>
+            <li><a href="/login" id="salir">Salir</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="clearfix"></div>
+
+<div class="container">
+    <form id="regCliente" method="post" action="/main/medico">
+
+        <div class="col-2">
+            <label>
+                Numero Registro
+                <input id="clave" name="documento" placeholder="Numero Registro" tabindex="1" required/>
+            </label>
+        </div>
+        <div class="col">
+            <label>
+                Nombre y Apellido
+                <input  name="nombre" placeholder="Nombre y Apellido" tabindex="2" required/>
+            </label>
+        </div>
+        <div class="col-2">
+            <label>
+                Dirección
+                <input name="direccion" placeholder="Direccion" tabindex="3" required/>
+            </label>
+        </div>
+        <div class="col">
+            <label>
+                Telefono
+                <input  name="telefono" placeholder="Telefono" tabindex="4" required/>
+            </label>
+        </div>
+        <div class="col-2">
+            <label>
+                Correo
+                <input  name="correo" placeholder="correo" tabindex="5" required/>
+            </label>
+        </div>
+        <div class="col">
+            <label>
+                Estado
+                <select tabindex="7" name="estado">
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </label>
+        </div>
+        <div class="col-submit">
+            <button type="submit">Guardar</button>
+            <button type="reset" class="cerrar"><a href="/main">Cerrar</a></button>
+            <!--onclick="cargarCliente()"-->
+        </div>
+
+    </form>
+</div>
+<!--Detalle medico-->
+<div class="container">
+    <div>
+        <table class="table tbCabecera">
+            <thead>
+            <tr>
+                <th width="9%" scope="col">Documento</th>
+                <th width="14%" scope="col">Nombre</th>
+                <th width="13%" scope="col">Direccion</th>
+                <th width="9%" scope="col">Telefono</th>
+                <th width="25%" scope="col">Correo</th>
+                <th width="15%" scope="col">Estado</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="scrollit">
+        <table class="table table-striped tbDetalle">
+            <tbody>
+                #foreach($med in $medico)
+                    <tr>
+                        <th name="thDocumento" width="9%" scope="row">$med.getMed_registro()</th>
+                        <td name="thNombre" width="14%">$med.getMed_nombre()</td>
+                        <td name="thDireccion" width="13%">$med.getMed_direccion()</td>
+                        <td name="thTelefono" width="9%">$med.getMed_telefono()</td>
+                        <td name="thCorreo" width="25%">$med.getMed_correo()</td>
+                        <td name="thEstado" width="15%">$med.getMed_estado()</td>
+                        <td><a href="/main/medico/$med.getMed_registro()" class="btn btn-primary">Modificar</a>
+                        <td><a  class="btn btn-danger" onclick="eliminar('$med.getMed_registro()','medico')">Eliminar</a></td>
+                    </tr>
+                #end
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Comiensan los Scripts-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+<script src="/js/mensajes.js"></script>
+<script>
+
+
+</script>
+</body>
+
+</html>
