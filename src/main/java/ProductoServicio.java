@@ -29,6 +29,8 @@ public class ProductoServicio {
         pro.setProductoDescripcion(req.queryParams("descripcion"));
         pro.setProductoPrecio(Integer.parseInt(req.queryParams("precio")));
         pro.setProductoTipo(req.queryParams("tipo"));
+        pro.setProductoUsu(req.queryParams("desUso"));
+        pro.setProductoMinimo(Integer.parseInt(req.queryParams("stkMin")));
         ProductoRecurso.crearProducto(pro);
         res.redirect("/main/producto");
         return "";

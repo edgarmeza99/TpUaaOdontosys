@@ -6,6 +6,8 @@ public class Producto {
     private String productoDescripcion;
     private Integer productoPrecio;
     private String productoTipo;
+    private String productoUsu;
+    private int productoMinimo;
 
     public Producto() {
     }
@@ -40,6 +42,22 @@ public class Producto {
 
     public void setProductoTipo(String productoTipo) {
         this.productoTipo = productoTipo;
+    }
+
+    public String getProductoUsu() {
+        return productoUsu;
+    }
+
+    public void setProductoUsu(String productoUsu) {
+        this.productoUsu = productoUsu;
+    }
+
+    public int getProductoMinimo() {
+        return productoMinimo;
+    }
+
+    public void setProductoMinimo(int productoMinimo) {
+        this.productoMinimo = productoMinimo;
     }
 
     @Override

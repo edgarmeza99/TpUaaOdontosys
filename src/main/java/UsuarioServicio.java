@@ -30,6 +30,19 @@ public class UsuarioServicio {
         return new ModelAndView(modelo, "View/login.vm");
     }
 
+    private static ModelAndView pageNewAccount(Request req, Response res) {
+        HashMap<String, Object> modelo = new HashMap<>();
+        return new ModelAndView(modelo, "View/newAccount.vm");
+    }
+
+
+    public static ModelAndView pageUsuario(Request req, Response res) throws SQLException {
+        HashMap<String, Object> modelo = new HashMap<>();
+        UsuarioRecurso.listarUsuario().clear();
+        modelo.put("usuario", UsuarioRecurso.listarUsuario());
+        return new ModelAndView(modelo, "View/main/usuario.vm");
+    }
+
     public static Object verificarLogin(Request req, Response res) throws SQLException {
         HashMap<String, Object> modelo = new HashMap<>();
         usr.setMail(req.queryParams("mail"));
@@ -46,14 +59,7 @@ public class UsuarioServicio {
         }catch (SQLException e){
             System.err.println(e);
         }
-
-
         return "";
-    }
-
-    private static ModelAndView pageNewAccount(Request req, Response res) {
-        HashMap<String, Object> modelo = new HashMap<>();
-        return new ModelAndView(modelo, "View/newAccount.vm");
     }
 
     public static Object createUsr(Request req, Response res) {
@@ -61,12 +67,13 @@ public class UsuarioServicio {
         usr.setNombre(req.queryParams("nombre"));
         usr.setMail(req.queryParams("mail"));
         usr.setPass(req.queryParams("pass"));
-
+        usr.setTelefono(req.queryParams("telefono"));
+        usr.setRol(req.queryParams("rol"));
         try {
 
             if (UsuarioRecurso.verificarMail(usr)) {
                 res.redirect("/login");
-               model.put("mensajeError", "<p style=\"display:'block'\">EL CORREO YA EXISTE</p>");
+                model.put("mensajeError", "<p style=\"display:'block'\">EL CORREO YA EXISTE</p>");
             } else {
 
                 UsuarioRecurso.crearUsuario(usr);
@@ -78,5 +85,59 @@ public class UsuarioServicio {
         return "ok";
     }
 
+    public static Object LoggincreateUsr(Request req, Response res) {
+        HashMap<String, Object> model = new HashMap<>();
+        usr.setNombre(req.queryParams("nombre"));
+        usr.setMail(req.queryParams("mail"));
+        usr.setPass(req.queryParams("pass"));
+        usr.setTelefono(req.queryParams("telefono"));
+        usr.setRol(req.queryParams("rol"));
+        try {
 
+            if (UsuarioRecurso.verificarMail(usr)) {
+                res.redirect("/main/usuario");
+            } else {
+
+                UsuarioRecurso.crearUsuario(usr);
+                res.redirect("/main/usuario");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al grabar " + e);
+        }
+        return "ok";
+    }
+
+    public static ModelAndView cargarFormulario(Request req, Response res) throws SQLException {
+        HashMap<String, Object> modelo = new HashMap<>();
+        usr.setUsuId(Integer.parseInt(req.params("id")));
+
+        UsuarioRecurso.listarUsuario().clear();
+        UsuarioRecurso.usuario(usr);
+
+        modelo.put("porUsuario", UsuarioRecurso.usuario(usr));
+        modelo.put("usuario",    UsuarioRecurso.listarUsuario());
+
+        return new ModelAndView(modelo, "View/main/usuarioMod.vm");
+    }
+    public static Object modificarUsuario(Request req, Response res) throws SQLException {
+        HashMap<String, Object> modelo = new HashMap<>();
+        usr.setUsuId(Integer.parseInt(req.queryParams("id")));
+        usr.setNombre(req.queryParams("nombre"));
+        usr.setMail(req.queryParams("mail"));
+        usr.setPass(req.queryParams("pass"));
+        usr.setTelefono(req.queryParams("telefono"));
+        usr.setRol(req.queryParams("rol"));
+        UsuarioRecurso.modUsuario(usr);
+
+        res.redirect("/main/usuario");
+
+        return "";
+    }
+    public static ModelAndView eliminarUsuario(Request req, Response res) throws SQLException {
+        HashMap<String, String> modelo = new HashMap<>();
+        usr.setUsuId(Integer.parseInt(req.params("id")));
+        UsuarioRecurso.eliminarUsuario(usr);
+        res.redirect("/main/usuario");
+        return new ModelAndView(modelo, "View/main/usuario.vm");
+    }
 }

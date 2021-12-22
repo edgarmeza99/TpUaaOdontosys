@@ -14,10 +14,12 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form id="register-form" method="post" action"/usuario/new">
-        <input id="usuario" name="nombre"  type="text" placeholder="Nombre" />
-        <input id="clave" name="pass"  type="password" placeholder="Contraseña" />
-        <input id="mail" name="mail"  type="text" placeholder="Direccion email" />
+      <form id="register-form" method="post" action="/newAccount">
+        <input id="usuario" name="nombre"  type="text" placeholder="Nombre" required />
+      <input id="telefono" name="telefono"  type="text" placeholder="telefono" required />
+        <input id="clave" name="pass"  type="password" placeholder="Contraseña" required />
+      <input id="rol" name="rol"  type="text" placeholder="Rol"  required/>
+        <input id="mail" name="mail"  type="text" placeholder="Direccion email" required />
         <button type="submit">Registrar</button>
         <p class="message">ya esta registrado? <a href="login">Ingresar</a></p>
       </form>
@@ -26,8 +28,13 @@
   </div>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
 <script>
+  var token = 0
+  token = Math.random()*10000000
+  console.log(token)
+  document.getElementById('token').innerHTML=token
   document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("register-form").addEventListener('submit', validarFormulario);
+
 });
 
 function validarFormulario(evento) {

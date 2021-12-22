@@ -16,8 +16,8 @@
         <ul>
             <li><a href="#">Registro</a>
                 <ul>
-                    <li><a href="#">Ventas</a></li>
-                    <li><a href="#">Pendientes</a></li>
+                    <li><a href="main/venta">Ventas</a></li>
+                    <li><a href="main/consulta">Consultas</a></li>
                 </ul>
 
             </li>
@@ -28,14 +28,15 @@
                 <!--id="cliente" onclick="cargarCliente()"-->
                     <li><a href="main/paciente">Pacientes</a></li>
                     <li><a href="main/proveedor">Proveedores</a></li>
-                    <li><a href="#">Consultas</a></li>
+                    <li><a href="main/medico">Medico</a></li>
+
                 </ul>
             </li>
             <li><a href="#">Mantenimiento</a>
             <!--Sub menu-->
             <ul>
                 <li><a href="main/producto">Productos</a></li>
-                <li><a href="#">Tipo de Plan</a></li>
+                <li><a href="main/usuario">Usuarios</a></li>
             </ul>
             </li>
             <li><a href="login" id="salir">Salir</a></li>
@@ -43,18 +44,6 @@
     </nav>
 </div>
 <div class="clearfix"></div>
-<div id="msg" class="mensajitos">
-            <div id="mensaje" class="card">
-                <div class="card-header" style="background-color: #bcdcc3;">
-                    <h3>Mensaje</h3>
-                </div>
-                <div class="card-body">
-                    <p id="textMng" style="font-size: 18px;">REGISTRO GRABADO</p>
-                </div>
-                <div id="botones">
-                </div>
-            </div>
-        </div>
 
 <script></script>
 </body>

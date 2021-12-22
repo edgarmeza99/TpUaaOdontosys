@@ -46,80 +46,74 @@
     </nav>
 </div>
 <div class="clearfix"></div>
-<div id="msg" class="mensajitos">
-    <div id="mensaje" class="card">
-        <div class="card-header" style="background-color: #bcdcc3;">
-            <h3>Mensaje</h3>
-        </div>
-        <div class="card-body">
-            <p id="textMng" style="font-size: 18px;">REGISTRO GRABADO</p>
-        </div>
-        <div id="botones">
-        </div>
+<div class="container">
+    <div class="formProv">
+        #foreach($pro in $porProveedor)
+            <form id="regProveedor" method="post" action="/main/proveedorMod">
+                <div class="col-2">
+                    <label>
+                        Numero Documento
+                        <input name="documento" id="clave" placeholder="Numero Documento" value="$pro.getPro_ruc()"
+                               tabindex="1" required/>
+                    </label>
+                </div>
+                <div class="col-2">
+                    <label>
+                        Nombre Proveedor
+                        <input name="nombre" id="descripcion" placeholder="Nombre Proveedor"
+                               value="$pro.getPro_nombre()" tabindex="2" required/>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Dirección
+                        <input name="direccion" placeholder="Direccion" value="$pro.getPro_direccion()" tabindex="3"
+                               required/>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Telefono
+                        <input name="telefono" placeholder="Telefono" value="$pro.getPro_telefono()" tabindex="4"
+                               required/>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Correo
+                        <input name="correo" placeholder="correo" value="$pro.getPro_correo()" tabindex="5" required/>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Tipo de Proveedor
+                        <select tabindex="6" name="tipo" value="$pro.getPro_tipo()">
+                            <option>Proveedor Local</option>
+                            <option>Proveedor Exterior</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Estado
+                        <select tabindex="7" name="estado" value="$pro.getPro_estado()">
+                            <option>Activo</option>
+                            <option>Inactivo</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-submit">
+                    <button type="submit">Guardar</button>
+                    <button type="reset" class="cerrar"><a href="/main">Cerrar</a></button>
+                    <!--onclick="cargarCliente()"-->
+                </div>
+
+            </form>
+        #end
     </div>
 </div>
-<div class="formProv">
-    #foreach($pro in $porProveedor)
-        <form id="regProveedor" method="post" action="/main/proveedorMod">
-            <div class="col-2">
-                <label>
-                    Numero Documento
-                    <input name="documento" id="clave"  placeholder="Numero Documento" value="$pro.getPro_ruc()" tabindex="1" required/>
-                </label>
-            </div>
-            <div class="col-2">
-                <label>
-                    Nombre Proveedor
-                    <input name="nombre"  id="descripcion"  placeholder="Nombre Proveedor" value="$pro.getPro_nombre()" tabindex="2" required/>
-                </label>
-            </div>
-            <div class="col-3">
-                <label>
-                    Dirección
-                    <input name="direccion" placeholder="Direccion" value="$pro.getPro_direccion()" tabindex="3" required/>
-                </label>
-            </div>
-            <div class="col-3">
-                <label>
-                    Telefono
-                    <input name="telefono" placeholder="Telefono" value="$pro.getPro_telefono()" tabindex="4" required/>
-                </label>
-            </div>
-            <div class="col-3">
-                <label>
-                    Correo
-                    <input name="correo" placeholder="correo" value="$pro.getPro_correo()" tabindex="5" required/>
-                </label>
-            </div>
-            <div class="col-3">
-                <label>
-                    Tipo de Proveedor
-                    <select tabindex="6" name="tipo" value="$pro.getPro_tipo()">
-                        <option>Proveedor Local</option>
-                        <option>Proveedor Exterior</option>
-                    </select>
-                </label>
-            </div>
-            <div class="col-3">
-                <label>
-                    Estado
-                    <select tabindex="7" name="estado" value="$pro.getPro_estado()">
-                        <option>Activo</option>
-                        <option>Inactivo</option>
-                    </select>
-                </label>
-            </div>
-            <div class="col-submit">
-                <button type="submit">Guardar</button>
-                <button type="reset" class="cerrar"><a href="/main">Cerrar</a></button>
-                <!--onclick="cargarCliente()"-->
-            </div>
-
-        </form>
-    #end
-</div>
 <!--Detalle proveedores-->
-<div class="contenedorTb">
+<div class="container">
     <div>
         <table class="table tbCabecera">
             <thead>

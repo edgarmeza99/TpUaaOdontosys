@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/alertify.rtl.css">
+    <link rel="stylesheet" href="/css/themes/default.rtl.css">
+    <title>OdontosSystem</title>
+</head>
+
+<div class="bgd1">
+    <div>
+        <nav id="menu">
+            <ul>
+                <li><a href="#">Registro</a>
+                    <ul>
+                        <li><a href="#">Ventas</a></li>
+                        <li><a href="#">Pendientes</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#">Operaciones</a>
+                    <!--Sub menu-->
+                    <ul>
+
+                        <li id="cliente"><a href="/main/paciente">Pacientes</a></li>
+                        <li><a href="/main/proveedor">Proveedores</a></li>
+                        <li id="consulta"><a href="/main/consulta">Consultas</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">Mantenimiento</a>
+                    <!--Sub menu-->
+                    <ul>
+                        <li id="producto"><a href="/main/producto">Productos</a></li>
+                        <li><a>Tipo de Plan</a></li>
+                    </ul>
+                </li>
+                <li><a href="/login" id="salir">Salir</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="clearfix"></div>
+    <div id="msg" class="mensajitos">
+        <div id="mensaje" class="card">
+            <div class="card-header" style="background-color: #bcdcc3;">
+                <h3>Mensaje</h3>
+            </div>
+            <div class="card-body">
+                <p id="textMng" style="font-size: 18px;">REGISTRO GRABADO</p>
+            </div>
+            <div id="botones">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="formCli">
+            <form id="regConsulta" method="post" action="/main/consulta">
+                <div class="col-2">
+                    <label>
+                        Id de Consulta
+                        <input id="clave" name="consulta_id" placeholder="Id de Consulta" tabindex="1" required/>
+                    </label>
+                </div>
+                <div class="col-2">
+                    <label>
+                        Nombre del Paciente
+                        <input name="nombre" placeholder="Nombre del Paciente" tabindex="2" required/>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Documento del Paciente
+                        <input name="documento" placeholder="Documento del Paciente" tabindex="3" required/>
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Nombre del Médico
+                        <input name="nombredoctor" placeholder="Nombre del Médico" tabindex="4" required/>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label>
+                        Fecha
+                        <input type="date" name="fecha" tabindex="5" required/>
+                    </label>
+                </div>
+
+                <div class="col-4">
+                    <label>
+                        Hora
+                        <input type="time" name="hora" tabindex="6" required/>
+                    </label>
+                </div>
+
+
+                <div class="col-submit">
+                    <button type="submit">Guardar</button>
+                    <button type="reset" class="cerrar"><a href="/main">Cerrar</a></button>
+                    <!--onclick="cargarCliente()"-->
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!--Detalle Consulta-->
+    <div class="container">
+        <div>
+            <table class="table tbCabecera">
+                <thead>
+                <tr>
+                    <th width="9%" scope="col">Id Consulta</th>
+                    <th width="15%" scope="col">Nombre del Paciente</th>
+                    <th width="15%" scope="col">Documento del Paciente</th>
+                    <th width="15%" scope="col">Nombre del Médico</th>
+                    <th width="17%" scope="col">Fecha</th>
+                    <th width="7%" scope="col">Hora</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="scrollit">
+            <table class="table table-striped tbDetalle">
+                <tbody>
+                    #foreach($cons in $consulta)
+                    <tr>
+                        <th name="thIdConsulta" width="10%" scope="row">$cons.getIdConsulta()</th>
+                        <td name="thNombre" width="18%">$cons.getNombrePac()</td>
+                        <td name="thDocumento" width="17%">$cons.getDocumentoPac()</td>
+                        <td name="thNombreDoctor" width="18%">$cons.getNombreDoctor()</td>
+                        <td name="thFecha" width="20%">$cons.getFecha()</td>
+                        <td name="thHora" width="20%">$cons.getHora()</td>
+                        <td><a href="consulta/$cons.getIdConsulta()" class="btn btn-primary btnMod">Modificar</a>
+                        <td><a class="btn btn-danger"
+                               onclick="eliminar('$cons.getIdConsulta()','consulta')">Eliminar</a></td>
+                    </tr>
+                    #end
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--Comiensan los Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+    <script src="/js/mensajes.js"></script>
+</div>
+</body>
+
+</html>

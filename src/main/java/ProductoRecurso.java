@@ -18,12 +18,15 @@ public class ProductoRecurso {
 
 
         try{
-            sql = "INSERT INTO producto (\"proID\", \"proDescripcion\", \"proPrecio\", \"proTipo\") VALUES(?,?,?,?);";
+            sql = "INSERT INTO public.producto(\"proID\", \"proDescripcion\", \"proPrecio\", \"proTipo\", \"proDescripcionUso\", \"proMinimoStock\")\n" +
+                    "\tVALUES (?, ?, ?, ?, ?, ?);;";
             ps = conn.getCon().prepareStatement(sql);
             ps.setString(1, p.getProductoId());
             ps.setString(2, p.getProductoDescripcion());
             ps.setInt(3, p.getProductoPrecio());
             ps.setString(4, p.getProductoTipo());
+            ps.setString(5,p.getProductoUsu());
+            ps.setInt(6,p.getProductoMinimo());
             ps.executeUpdate();
             ps.close();
         }catch (SQLException ex){
@@ -37,12 +40,14 @@ public class ProductoRecurso {
         try{
             System.out.println(p.toString());
 
-            sql = "UPDATE producto SET \"proID\"=?, \"proDescripcion\"=?, \"proPrecio\"=?, \"proTipo\"=? WHERE \"proID\"=?;";
+            sql = "UPDATE producto SET \"proID\"=?, \"proDescripcion\"=?, \"proPrecio\"=?, \"proTipo\"=?, \"proDescripcionUso\"=?, \"proMinimoStock\"=? WHERE \"proID\"=?;";
             ps = conn.getCon().prepareStatement(sql);
             ps.setString(1, p.getProductoId());
             ps.setString(2, p.getProductoDescripcion());
             ps.setInt(3, p.getProductoPrecio());
             ps.setString(4, p.getProductoTipo());
+            ps.setString(5,p.getProductoUsu());
+            ps.setInt(6,p.getProductoMinimo());
             ps.executeUpdate();
             ps.close();
         }catch (SQLException ex){
@@ -77,7 +82,8 @@ public class ProductoRecurso {
             pro.setProductoDescripcion(rs.getString(2));
             pro.setProductoPrecio(rs.getInt(3));
             pro.setProductoTipo(rs.getString(4));
-
+            pro.setProductoUsu(rs.getString(5));
+            pro.setProductoMinimo(rs.getInt(6));
             lstProducto.add(pro);
         }
         st.close();
@@ -99,6 +105,8 @@ public class ProductoRecurso {
             pro.setProductoDescripcion(rs.getString(2));
             pro.setProductoPrecio(rs.getInt(3));
             pro.setProductoTipo(rs.getString(4));
+            pro.setProductoUsu(rs.getString(5));
+            pro.setProductoMinimo(rs.getInt(6));
             lstPorProducto.add(pro);
         }
         ps.close();
