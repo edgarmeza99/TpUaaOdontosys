@@ -1,7 +1,7 @@
 public class VentaDetalle {
     private Integer ventaId;
     private Integer id;
-    private Long proId;
+    private String proId;
     private String descripcion;
     private Integer cantidad;
     private Integer precio;
@@ -11,15 +11,15 @@ public class VentaDetalle {
 
     }
 
-    public Long getProId() {
+    public String getProId() {
         return proId;
     }
 
-    public void setProId(Long proId) {
+    public void setProId(String proId) {
         this.proId = proId;
     }
 
-    public VentaDetalle(Integer ventaId, Integer id, Long proId, String descripcion, Integer cantidad, Integer precio, Integer total) {
+    public VentaDetalle(Integer ventaId, Integer id, String proId, String descripcion, Integer cantidad, Integer precio, Integer total) {
         this.ventaId = ventaId;
         this.id = id;
         this.proId = proId;

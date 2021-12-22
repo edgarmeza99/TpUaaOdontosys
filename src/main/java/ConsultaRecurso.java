@@ -73,8 +73,8 @@ public class ConsultaRecurso {
             cons.setNombrePac(rs.getString(2));
             cons.setDocumentoPac(rs.getString(3));
             cons.setNombreDoctor(rs.getString(4));
-            cons.setFecha(rs.getString(5));
-            cons.setHora(rs.getString(6));
+            cons.setHora(rs.getString(5));
+            cons.setFecha(rs.getString(6));
             lstConsulta.add(cons);
         }
         st.close();
@@ -95,8 +95,8 @@ public class ConsultaRecurso {
             cons.setNombrePac(rs.getString(2));
             cons.setDocumentoPac(rs.getString(3));
             cons.setNombreDoctor(rs.getString(4));
-            cons.setFecha(rs.getString(5));
-            cons.setHora(rs.getString(6));
+            cons.setHora(rs.getString(5));
+            cons.setFecha(rs.getString(6));
             lstPorConsulta.add(cons);
         }
         ps.close();

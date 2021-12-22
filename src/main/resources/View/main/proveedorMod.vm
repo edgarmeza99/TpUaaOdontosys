@@ -56,17 +56,17 @@
                     <label>
                         Numero Documento
                         <input name="documento" id="clave" placeholder="Numero Documento" value="$pro.getPro_ruc()"
-                               tabindex="1" required/>
+                               tabindex="1" readonly="readonly" required/>
                     </label>
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <label>
                         Nombre Proveedor
                         <input name="nombre" id="descripcion" placeholder="Nombre Proveedor"
                                value="$pro.getPro_nombre()" tabindex="2" required/>
                     </label>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <label>
                         Dirección
                         <input name="direccion" placeholder="Direccion" value="$pro.getPro_direccion()" tabindex="3"
@@ -80,7 +80,7 @@
                                required/>
                     </label>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <label>
                         Correo
                         <input name="correo" placeholder="correo" value="$pro.getPro_correo()" tabindex="5" required/>
@@ -95,7 +95,7 @@
                         </select>
                     </label>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <label>
                         Estado
                         <select tabindex="7" name="estado" value="$pro.getPro_estado()">

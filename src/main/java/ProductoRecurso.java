@@ -48,6 +48,7 @@ public class ProductoRecurso {
             ps.setString(4, p.getProductoTipo());
             ps.setString(5,p.getProductoUsu());
             ps.setInt(6,p.getProductoMinimo());
+            ps.setString(7, p.getProductoId());
             ps.executeUpdate();
             ps.close();
         }catch (SQLException ex){

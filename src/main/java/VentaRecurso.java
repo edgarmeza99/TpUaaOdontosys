@@ -41,7 +41,7 @@ public class VentaRecurso {
                     v.getVentaDetalle()) {
                psVentDet.setInt(1,v.getVentaId());
                psVentDet.setInt(2,vd.getId());
-               psVentDet.setLong(3,vd.getProId());
+               psVentDet.setString(3,vd.getProId());
                psVentDet.setInt(4,vd.getCantidad());
                psVentDet.setInt(5,vd.getPrecio());
                psVentDet.executeUpdate();

@@ -70,38 +70,38 @@
                     <label>
                         Id Consulta
                         <input name="consulta_id" id="clave" value="$cons.getIdConsulta()" readonly="readonly"
-                               tabindex="1"/>
+                               tabindex="1" required/>
                     </label>
                 </div>
                 <div class="col-2">
                     <label>
                         Nombre del Paciente
-                        <input name="nombre" value="$cons.getNombrePac()" tabindex="2"/>
+                        <input name="nombre" value="$cons.getNombrePac()" tabindex="2" required/>
                     </label>
                 </div>
                 <div class="col-3">
                     <label>
                         Documento del Paciente
-                        <input name="documento" value="$cons.getDocumentoPac()" tabindex="3"/>
+                        <input name="documento" value="$cons.getDocumentoPac()" tabindex="3" required/>
                     </label>
                 </div>
                 <div class="col-3">
                     <label>
                         Nombre del Médico
-                        <input name="nombredoctor" value="$cons.getNombreDoctor()" tabindex="4"/>
+                        <input name="nombredoctor" value="$cons.getNombreDoctor()" tabindex="4" required/>
                     </label>
                 </div>
                 <div class="col-4">
                     <label>
                         Fecha
-                        <input type="date" name="fecha" value="$cons.getFecha()" tabindex="5"/>
+                        <input type="date" name="fecha" value="$cons.getFecha()" tabindex="5" required/>
                     </label>
                 </div>
 
                 <div class="col-4">
                     <label>
                         Hora
-                        <input type="time" name="hora" value="$cons.getHora()" tabindex="6"/>
+                        <input type="time" name="hora" value="$cons.getHora()" tabindex="6" required/>
                     </label>
                 </div>
                 <div class="col-submit">

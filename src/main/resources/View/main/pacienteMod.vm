@@ -68,20 +68,19 @@
                     <div class="col-3">
                         <label>
                             Teléfono
-                            <input name="telefono" value="$pac.getTelefono()" tabindex="3"/>
+                            <input name="telefono" value="$pac.getTelefono()" tabindex="3" required/>
                         </label>
                     </div>
                     <div class="col-3">
                         <label>
                             Dirección
-                            <input name="direccion" value="$pac.getDireccion()" tabindex="4"/>
+                            <input name="direccion" value="$pac.getDireccion()" tabindex="4" required/>
                         </label>
                     </div>
                     <div class="col-3">
                         <label>
                             Tipo de Plan
                             <select tabindex="5" name="plan">
-                                <option>Ninguno</option>
                                 <option>Estandar</option>
                                 <option>Promo</option>
                                 <option>Premium</option>
