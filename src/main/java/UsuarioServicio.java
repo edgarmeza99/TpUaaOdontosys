@@ -72,12 +72,11 @@ public class UsuarioServicio {
         try {
 
             if (UsuarioRecurso.verificarMail(usr)) {
-                res.redirect("/login");
-                model.put("mensajeError", "<p style=\"display:'block'\">EL CORREO YA EXISTE</p>");
+                res.redirect("/main/usuario");
             } else {
 
                 UsuarioRecurso.crearUsuario(usr);
-                res.redirect("/login");
+                res.redirect("/main/usuario");
             }
         } catch (Exception e) {
             System.out.println("Error al grabar " + e);
@@ -93,9 +92,9 @@ public class UsuarioServicio {
         usr.setTelefono(req.queryParams("telefono"));
         usr.setRol(req.queryParams("rol"));
         try {
-
             if (UsuarioRecurso.verificarMail(usr)) {
                 res.redirect("/login");
+                model.put("mensajeError", "<p style=\"display:'block'\">EL CORREO YA EXISTE</p>");
             } else {
 
                 UsuarioRecurso.crearUsuario(usr);
@@ -104,6 +103,7 @@ public class UsuarioServicio {
         } catch (Exception e) {
             System.out.println("Error al grabar " + e);
         }
+
         return "ok";
     }
 
