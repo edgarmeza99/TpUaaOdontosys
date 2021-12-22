@@ -95,11 +95,11 @@ public class UsuarioServicio {
         try {
 
             if (UsuarioRecurso.verificarMail(usr)) {
-                res.redirect("/main/usuario");
+                res.redirect("/login");
             } else {
 
                 UsuarioRecurso.crearUsuario(usr);
-                res.redirect("/main/usuario");
+                res.redirect("/login");
             }
         } catch (Exception e) {
             System.out.println("Error al grabar " + e);

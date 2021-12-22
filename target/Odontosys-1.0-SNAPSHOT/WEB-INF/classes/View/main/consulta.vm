@@ -14,37 +14,36 @@
 </head>
 
 <div class="bgd1">
-    <div>
-        <nav id="menu">
-            <ul>
-                <li><a href="#">Registro</a>
-                    <ul>
-                        <li><a href="#">Ventas</a></li>
-                        <li><a href="#">Pendientes</a></li>
-                    </ul>
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Registro</a>
+                <ul>
+                    <li><a href="/main/venta">Ventas</a></li>
+                    <li><a href="/main/consulta">Consultas</a></li>
+                </ul>
 
-                </li>
-                <li><a href="#">Operaciones</a>
-                    <!--Sub menu-->
-                    <ul>
+            </li>
 
-                        <li id="cliente"><a href="/main/paciente">Pacientes</a></li>
-                        <li><a href="/main/proveedor">Proveedores</a></li>
-                        <li id="consulta"><a href="/main/consulta">Consultas</a></li>
+            <li><a href="#">Operaciones</a>
+                <!--Sub menu-->
+                <ul>
+                    <!--id="cliente" onclick="cargarCliente()"-->
+                    <li><a href="/main/paciente">Pacientes</a></li>
+                    <li><a href="/main/proveedor">Proveedores</a></li>
+                    <li><a href="/main/medico">Medico</a></li>
 
-                    </ul>
-                </li>
-                <li><a href="#">Mantenimiento</a>
-                    <!--Sub menu-->
-                    <ul>
-                        <li id="producto"><a href="/main/producto">Productos</a></li>
-                        <li><a>Tipo de Plan</a></li>
-                    </ul>
-                </li>
-                <li><a href="/login" id="salir">Salir</a></li>
-            </ul>
-        </nav>
-    </div>
+                </ul>
+            </li>
+            <li><a href="#">Mantenimiento</a>
+                <!--Sub menu-->
+                <ul>
+                    <li><a href="/main/producto">Productos</a></li>
+                    <li><a href="/main/usuario">Usuarios</a></li>
+                </ul>
+            </li>
+            <li><a href="/login" id="salir">Salir</a></li>
+        </ul>
+    </nav>
     <div class="clearfix"></div>
     <div id="msg" class="mensajitos">
         <div id="mensaje" class="card">
