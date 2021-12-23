@@ -49,13 +49,13 @@
     </div>
     <div class="clearfix"></div>
     <div class="container">
-        <form id="regProducto" method="post" action="/main/producto">
+        <form id="regProducto" method="post" action="/main/productoMod">
             #foreach($pro in $porProducto)
                 <div class="col-2">
                     <label>
                         Id del Producto
                         <input name="id" id="clave" placeholder="Id Producto" value="$pro.getProductoId()"
-                               tabindex="1" required/>
+                               tabindex="1" readonly="readonly" required/>
                     </label>
                 </div>
                 <div class="col-3">
@@ -83,7 +83,7 @@
                     <label>
                         Descripción del Uso del Producto
                         <input name="desUso" id="desUso" placeholder="Descripción del Uso del Producto"
-                               value="$pro.getProductoUsu()" tabindex="5"/>
+                               value="$pro.getProductoUsu()" tabindex="5" required/>
                     </label>
                 </div>
                 <div class="col-3">

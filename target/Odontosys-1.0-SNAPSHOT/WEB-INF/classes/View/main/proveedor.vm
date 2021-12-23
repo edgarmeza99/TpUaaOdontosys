@@ -141,7 +141,7 @@
                     <td name="thEstado" width="10%">$pro.getPro_estado()</td>
                     ##                      <td><a href="proveedor/$pro.getPro_Ruc()" class="btn btn-primary btnMod">Modificar</a></td>
                     <td><a href="/main/proveedor/$pro.getPro_ruc()" class="btn btn-primary">Modificar</a></td>
-                    <td><a class="btn btn-danger" onclick="eliminar($pro.getPro_ruc())">Eliminar</a></td>
+                    <td><a class="btn btn-danger" onclick="eliminar($pro.getPro_ruc(),'proveedor')">Eliminar</a></td>
                 </tr>
                 #end
             </tbody>

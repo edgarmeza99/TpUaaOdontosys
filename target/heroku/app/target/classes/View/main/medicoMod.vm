@@ -70,13 +70,13 @@
                     <input name="documento" value="$med.getMed_registro()" readonly="readonly" tabindex="1" required/>
                 </label>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <label>
                     Nombre Proveedor
                     <input name="nombre" value="$med.getMed_nombre()" tabindex="2" required/>
                 </label>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label>
                     Dirección
                     <input name="direccion" value="$med.getMed_direccion()" tabindex="3" required/>
@@ -88,7 +88,7 @@
                     <input name="telefono" value="$med.getMed_telefono()" tabindex="4" required/>
                 </label>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <label>
                     Correo
                     <input name="correo" value="$med.getMed_correo()" tabindex="5" required/>
