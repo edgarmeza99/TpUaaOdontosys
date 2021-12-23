@@ -19,6 +19,7 @@
             <input id="clave" name="pass"  type="password" placeholder="Contraseña"/>
             <button type="submit">Ingresar</button>
             <p class="message">Aun no se registro? <a href="newAccount">Crear Cuenta</a></p>
+            <p class="message">1.0.1</p>
         </form>
     </div>
 </div>
