@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+
+
+    <title>OdontosSystem</title>
+</head>
+
+<body>
+<div class="login-page">
+    <div class="form">
+        <form id="login-form" method="post" action="/main">
+            <input id="mail"  name="mail" type="text" placeholder="Correo electronico"/>
+            <input id="clave" name="pass"  type="password" placeholder="Contraseña"/>
+            <button type="submit">Ingresar</button>
+            <p class="message">Aun no se registro? <a href="newAccount">Crear Cuenta</a></p>
+            <p class="message">1.0.1</p>
+        </form>
+    </div>
+</div>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+<script >
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("login-form").addEventListener('submit', validarFormulario);
+    });
+
+    function validarFormulario(evento) {
+        evento.preventDefault();
+        var clave = document.getElementById('clave').value;
+        if (clave.length < 1) {
+            swal('La clave no es válida');
+
+            return;
+        }
+        var usuario = document.getElementById('mail').value;
+        if (usuario.length == 0) {
+            swal('No has escrito nada en el mail');
+            return;
+        }
+
+        this.submit();
+    }
+</script>
+</body>
+</html>

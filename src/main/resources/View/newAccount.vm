@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/estilos.css">
+
+
+  <title>OdontosSystem</title>
+</head>
+
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form id="register-form" method="post" action="/newAccount">
+        <input id="usuario" name="nombre"  type="text" placeholder="Nombre" required />
+      <input id="telefono" name="telefono"  type="text" placeholder="telefono" required />
+        <input id="clave" name="pass"  type="password" placeholder="Contraseña" required />
+      <input id="rol" name="rol"  type="text" placeholder="Rol"  required/>
+        <input id="mail" name="mail"  type="text" placeholder="Direccion email" required />
+        <button type="submit">Registrar</button>
+        <p class="message">ya esta registrado? <a href="login">Ingresar</a></p>
+      </form>
+
+    </div>
+  </div>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+<script>
+  var token = 0
+  token = Math.random()*10000000
+  console.log(token)
+  document.getElementById('token').innerHTML=token
+  document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("register-form").addEventListener('submit', validarFormulario);
+
+});
+
+function validarFormulario(evento) {
+  evento.preventDefault();
+  var clave = document.getElementById('clave').value;
+  if (clave.length < 1) {
+    swal('La clave no es válida');
+
+    return;
+  }
+  var usuario = document.getElementById('usuario').value;
+  if (usuario.length == 0) {
+    swal('No has escrito nada en el correo');
+    return;
+  }
+  var usuario = document.getElementById('mail').value;
+  if (usuario.length == 0) {
+    swal('No has escrito nada en el correo');
+    return;
+  }
+  this.submit();
+}
+</script>
+</body>
+
+
+</html>
